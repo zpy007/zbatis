@@ -3,6 +3,12 @@
         PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
+    <properties>
+        <property name="username" value="postgres"/>
+        <property name="password" value="123456"/>
+        <property name="url" value="jdbc:postgresql://127.0.0.1:5432/creditinfo"/>
+        <property name="datasource" value="org.postgresql.Driver"/>
+    </properties>
     <environments default="development">
         <environment id="development">
             <transactionManager type="JDBC"/>
@@ -15,6 +21,6 @@
         </environment>
     </environments>
     <mappers>
-        <mapper resource="org/mybatis/example/BlogMapper.xml"/>
+        <mapper resource="com/zpy/BlogMapper.xml"/>
     </mappers>
 </configuration>

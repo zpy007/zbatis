@@ -12,4 +12,7 @@ package com.zpy.exe;
  */
 
 public class Execute {
+
+    String xmlResource = "";
+
 }
