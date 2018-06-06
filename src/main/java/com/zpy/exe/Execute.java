@@ -11,8 +11,30 @@ package com.zpy.exe;
  *
  */
 
+import org.apache.ibatis.io.Resources;
+import org.apache.ibatis.session.SqlSession;
+import org.apache.ibatis.session.SqlSessionFactory;
+import org.apache.ibatis.session.SqlSessionFactoryBuilder;
+
+import java.io.IOException;
+import java.io.InputStream;
+
 public class Execute {
 
-    String xmlResource = "";
+
+    String xmlResource = "classpath:mybatis-config.xml";
+    public void init() throws IOException{
+        InputStream inputStream = Resources.getResourceAsStream(xmlResource);
+        //inputStream.
+        SqlSessionFactory sqlSessionFactory=new SqlSessionFactoryBuilder().build(inputStream);
+        SqlSession sqlSession=sqlSessionFactory.openSession();
+        try {
+            //sqlSession.selectone("");
+        }finally {
+            sqlSession.close();
+        }
+    }
+
+
 
 }

@@ -1,0 +1,5 @@
+<select id="selectsample" resultType="hashmap">
+
+    select * from clients where client_id=${id}
+
+</select>
