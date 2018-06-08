@@ -22,7 +22,7 @@ import java.io.InputStream;
 import java.util.HashMap;
 
 public class Execute {
-    public String resources="com/zpy/exe/mybatis-config.xml";
+    public String resources="mybatis-config.xml";
     public SqlSession init() throws IOException {
         InputStream inputStream = Resources.getResourceAsStream(resources);
         SqlSessionFactory sqlSessionFactory=new SqlSessionFactoryBuilder().build(inputStream);
@@ -34,8 +34,9 @@ public class Execute {
         Execute exe = new Execute();
         SqlSession session = exe.init();
         try{
-            ClientsMap map=session.getMapper(ClientsMap.class);
-            HashMap hashMap=map.selectClient("150402196910041536");
+            //ClientsMap map=session.getMapper(ClientsMap.class);
+            //HashMap hashMap=map.selectClient("150402196910041536");
+            HashMap hashMap=session.selectOne("com.zpy.dao.ClientsMap.selectClient","150402196910041536");
             System.out.println(hashMap);
         }finally{
             session.close();
